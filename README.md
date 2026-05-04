@@ -1,113 +1,120 @@
-# 📱 Phone Number Info + Location + Weather (Python Project)
+# Phone Number Tracer
 
-## 👨‍💻 About this project
+## About
 
-This is a simple Python project I made to practice working with APIs and libraries.
+This is a Python-based utility that extracts basic information from a phone number and combines it with location and weather data.
 
-It takes a phone number as input and gives:
-
-* basic details about the number
-* current location using IP
-* full address using geocoding
-* current weather of that location
+The program takes a phone number as input and displays details such as region, service provider, time zones, current location (via IP), full address, and weather.
 
 ---
 
-## 🔧 What I used
+## Features
 
-* `phonenumbers` → to get info about phone number
-* `geopy` → to convert latitude & longitude into address
-* `requests` → to call APIs
-* `dotenv` → to store API keys safely
-
-APIs used:
-
-* OpenCage (for address if fallback needed)
-* OpenWeatherMap (for weather)
+* Parse and validate phone numbers
+* Identify telecom carrier and region
+* Fetch time zone information
+* Detect current location using IP address
+* Convert coordinates into readable address
+* Retrieve current weather data
 
 ---
 
-## 📂 How to run
+## Tech Stack
 
-### Step 1: Install libraries
+* Python
+* phonenumbers (number parsing and validation)
+* requests (API calls)
+* geopy (reverse geocoding)
+* python-dotenv (environment variables)
 
-```bash
-pip install phonenumbers geopy requests python-dotenv
+---
+
+## APIs Used
+
+* OpenCage Geocoder (fallback for address)
+* OpenWeatherMap (weather data)
+* ipinfo.io (IP-based location)
+
+---
+
+## Setup
+
+### Install dependencies
+
+```bash id="m9x7zp"
+pip install phonenumbers requests geopy python-dotenv
 ```
 
 ---
 
-### Step 2: Create `.env` file
+### Configure environment variables
 
-Create a file named `.env` and add:
+Create a `.env` file:
 
-```
-OPENCAGE_API_KEY=your_key_here
-WEATHER_API_KEY=your_key_here
+```env id="q8h2yx"
+OPENCAGE_API_KEY=your_api_key
+WEATHER_API_KEY=your_api_key
 ```
 
 ---
 
-### Step 3: Run the program
+## Run the program
 
-```bash
+```bash id="z7n1vt"
 python main.py
 ```
 
-Enter phone number like:
+Enter a phone number with country code:
 
-```
+```id="w6c3pd"
 +91XXXXXXXXXX
 ```
 
 ---
 
-## 📌 What it shows
+## Output
+
+The program displays:
 
 * Phone number validity
 * Service provider
 * Region
 * Time zones
-* Your current location (via IP)
+* Current IP-based location
+* Latitude and longitude
 * Full address
-* Weather info
+* Weather information
 
 ---
 
-## ⚠️ Problems / Limitations
+## Limitations
 
-* Location from IP is not always accurate
-* Nominatim may fail sometimes (that’s why OpenCage fallback is used)
-* Needs internet connection
-* API keys are required
-
----
-
-## 🧠 What I learned
-
-* How to use external APIs
-* How to handle JSON responses
-* Basics of environment variables
-* Error handling in Python
+* Does not track real-time location of a phone number
+* Location is based on IP, not the phone number itself
+* Accuracy of IP-based location may vary
+* Requires internet connection and API keys
 
 ---
 
-## 🚧 Future improvements
+## Learning Outcomes
 
-* Fix API key variable bug in code
-* Add GUI (maybe using Tkinter or web app)
-* Improve error handling
-* Allow tracking based on number (currently not possible accurately)
-
----
-
-## 📎 Note
-
-This project is only for learning purpose.
-It does NOT track real-time location of a phone number.
+* Working with third-party APIs
+* Handling JSON responses
+* Using environment variables securely
+* Basic error handling in Python
 
 ---
 
-## ⭐ If you like it
+## Improvements
 
-Feel free to fork or improve it 🙂
+* Fix API key variable usage in code
+* Improve input validation
+* Add proper exception handling
+* Build a simple UI (CLI improvements or web app)
+
+---
+
+## Note
+
+This project is for learning purposes only.
+It does not provide real-time tracking of phone numbers.
